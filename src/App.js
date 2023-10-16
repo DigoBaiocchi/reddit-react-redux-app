@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/navbar';
 import { useState } from 'react';
+import { Post } from './components/Post/Post.js';
+import { Header } from './features/Header/Header.js';
 
 const listOfNames = ['Rachel', 'Rodrigo', 'Gambito','Jack'];
 
@@ -15,19 +17,9 @@ function App() {
 
   return (
     <div>
-      <header>
-        <nav className='nav-bar'>
-          <a className='nav' href=''>Best</a>
-          <a className='nav' href=''>Popular</a>
-          <a className='nav' href=''>New</a>
-        </nav>
-        <div className='search-section'>
-          <input id="search" className='search' onChange={handleChange}></input>
-          <button className='search'd>Search</button>
-        </div>
-      </header>
+      <Header handleChange={handleChange} />
       <main>
-        <div className='post'>
+        <Post>
           <div className='counter'>
             <p>500</p>
           </div>
@@ -36,16 +28,14 @@ function App() {
             <p>{username}</p>
             </div>
             <div className='post-inner-content'>
-            <p>title title title title title title title title title title title title title title title title title title title title title title title title title title title title title 
-            title title title title title title title title title title title title title title title title title title title title title title title title title title title title title 
-            </p>
+            <p>Text goes here</p>
             <img/>
             </div>
             <div className='post-comments'>
               <p>Comments</p>
             </div>
           </div>
-        </div>
+        </Post>
       </main>
     </div>
   );
