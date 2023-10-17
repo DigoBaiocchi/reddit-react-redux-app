@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/navbar';
 import { useState } from 'react';
-import { Post } from './components/Post/Post.jsx';
+import { Card } from './components/Card/Card.jsx';
 import { Header } from './features/Header/Header.jsx';
 
 const listOfNames = ['Rachel', 'Rodrigo', 'Gambito','Jack'];
@@ -19,7 +17,7 @@ function App() {
     <div>
       <Header handleChange={handleChange} />
       <main>
-        <Post>
+        <Card>
           <div className='counter'>
             <p>500</p>
           </div>
@@ -35,7 +33,7 @@ function App() {
               <p>Comments</p>
             </div>
           </div>
-        </Post>
+        </Card>
       </main>
     </div>
   );
