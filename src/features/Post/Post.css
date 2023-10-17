@@ -1,0 +1,40 @@
+.counter {
+    width: 50px;
+    text-align: center;
+    /* border-style: solid; */
+    height: 100%;
+  }
+  
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 95%;
+    height: 100%;
+  }
+  
+  .post-content-username {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .post-content-username p {
+    padding: 0px;
+  }
+  
+  .post-inner-content {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 80%;
+  }
+  
+  .post-comments {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 10%;
+  }
