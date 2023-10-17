@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/navbar';
 import { useState } from 'react';
-import { Post } from './components/Post/Post.js';
-import { Header } from './features/Header/Header.js';
+import { Post } from './components/Post/Post.jsx';
+import { Header } from './features/Header/Header.jsx';
 
 const listOfNames = ['Rachel', 'Rodrigo', 'Gambito','Jack'];
 

@@ -3,12 +3,6 @@ import { useState } from 'react';
 import './Header.css'
 
 export const Header = (props) => {
-    // const [username, setUsername] = useState('New username');
-
-    // const handleChange = ({ target }) => {
-    //     const { name, value } = target;
-    //     setUsername(value);
-    // }
     return (
         <header>
             <nav className='nav-bar'>
