@@ -1,7 +1,7 @@
-export default async function redditApi() {
-    const url = 'https://www.reddit.com/best.json';
+export  async function redditApi() {
+    const url = 'https://www.reddit.com/.json';
     const result = await fetch(url);
-    const json = await fetch.json();
-    console.log(json)
-    return json;
+    const json = await result.json();
+    
+    return json.data.children;
 }

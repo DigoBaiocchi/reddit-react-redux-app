@@ -1,24 +1,43 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Header } from './features/Header/Header.jsx';
 import { Post } from './features/Post/Post.jsx';
 
-const listOfNames = ['Rachel', 'Rodrigo', 'Gambito','Jack'];
+import { redditApi } from './api/redditApi';
 
 function App() {
-  const [username, setUsername] = useState('New username');
+  const [posts, setPosts] = useState([]);
+  
 
   const handleChange = ({ target }) => {
     const { value } = target;
-    setUsername(value);
   }
+
+  const fetchApiData = () => {
+    return fetch('https://www.reddit.com/.json')
+      .then(data => data.json())
+      .then((data) => setPosts(data.data.children));
+  };
+
+  useEffect(() => {
+    fetchApiData();
+  }, []);
 
   return (
     <div>
       <Header handleChange={handleChange} />
       <main>
-        <Post username={username} />
+        {
+          posts.map((post) => (
+              <Post 
+                username={post.data.author}
+                title={post.data.title}
+                content={post.data.selftext}
+              />)
+          )
+        }
+        
       </main>
     </div>
   );

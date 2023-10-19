@@ -12,8 +12,9 @@ export const Post = (props) => {
             <p>{props.username}</p>
             </div>
             <div className='post-inner-content'>
-            <p>Text goes here</p>
-            <img/>
+              <p>{props.title}</p>
+              <p>{props.content}</p>
+              <img/>
             </div>
             <div className='post-comments'>
               <p>Comments</p>
