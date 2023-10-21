@@ -1,7 +1,7 @@
 header {
   height: auto;
   margin: 0px;
-  background-color: rgb(202, 197, 197);
+  background-color: rgb(139, 161, 179);
   border-bottom: solid;
   border-width: 1px;
 }
@@ -15,7 +15,7 @@ header {
   
   .nav {
     margin: 5px;
-    background-color: rgb(199, 213, 224);
+    background-color: rgb(157, 179, 196);
     border-style: solid;
     border-color: black;
     border-width: 1px;
