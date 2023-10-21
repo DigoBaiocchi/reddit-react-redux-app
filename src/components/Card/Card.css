@@ -3,6 +3,9 @@
     margin: 5px;
     width: 1000px;
     height:fit-content;
-    background-color: rgb(46, 46, 59);
+    background-color: rgb(139, 161, 179);
     color: white;
+    border-style: solid;
+    border-color: rgb(133, 131, 131);
+    border-width: 2px;
   }

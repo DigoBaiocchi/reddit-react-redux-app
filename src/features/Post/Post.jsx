@@ -4,8 +4,10 @@ import { Card } from '../../components/Card/Card';
 export const Post = (props) => {
     return (
         <Card>
-          <div className='counter'>
+          <div>
+            <div className='counter'>
             <p>500</p>
+            </div>
           </div>
           <div className='post-content'>
             <div className='post-content-username'>
