@@ -1,9 +1,12 @@
 header {
   height: auto;
+  width: 100%;
   margin: 0px;
   background-color: rgb(139, 161, 179);
   border-bottom: solid;
   border-width: 1px;
+  position: fixed;
+  z-index: 99px;;
 }
 
 .nav-bar {
