@@ -11,8 +11,8 @@ export const Header = (props) => {
                 <a className='nav' href=''>New</a>
             </nav>
             <div className='search-section'>
-                <input id="search" className='search' onChange={props.handleChange}></input>
-                <button className='search'd>Search</button>
+                <input id="search" className='search-input' onChange={props.handleChange}></input>
+                <button className='search-button'd>Search</button>
             </div>
         </header>    
     );
