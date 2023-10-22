@@ -35,6 +35,7 @@ function App() {
                 username={post.data.author}
                 title={post.data.title}
                 content={post.data.selftext}
+                numComments={post.data.num_comments}
               />)
           )
         }

@@ -60,3 +60,7 @@ main{
   justify-content: left;
   height: 10%;
 }
+
+.post-comments-button {
+  text-decoration: none;
+}
