@@ -1,5 +1,5 @@
 main{
-  padding-top: 140px;
+  padding-top: 85px;
 }
 
 .border {
@@ -28,10 +28,7 @@ main{
   justify-content: left;
   width: 100%;
   height: fit-content;
-}
-
-.post-content-username p {
-  padding: 0px;
+  font-size: 12px;
 }
 
 .post-inner-content {
@@ -40,6 +37,15 @@ main{
   align-items: left;
   justify-content: left;
   height: 80%;
+}
+
+.post-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.post-text-content {
+  font-size: 18px;
 }
 
 .post-comments {

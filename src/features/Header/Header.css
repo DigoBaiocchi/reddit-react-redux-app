@@ -1,12 +1,13 @@
 header {
   height: auto;
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 0px;
   background-color: rgb(139, 161, 179);
   border-bottom: solid;
   border-width: 1px;
   position: fixed;
-  z-index: 99px;;
 }
 
 .nav-bar {
@@ -39,6 +40,8 @@ header {
   }
   
   .search-section {
+    display: flex;
+    align-items: center;
     text-align: center;
   }
   

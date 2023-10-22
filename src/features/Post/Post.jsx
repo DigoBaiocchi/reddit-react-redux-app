@@ -11,11 +11,11 @@ export const Post = (props) => {
           </div>
           <div className='post-content'>
             <div className='post-content-username'>
-            <p>{props.username}</p>
+            <p>Posted by {props.username}</p>
             </div>
             <div className='post-inner-content'>
-              <p>{props.title}</p>
-              <p>{props.content}</p>
+              <p className='post-title'>{props.title}</p>
+              <p className='post-text-content'>{props.content}</p>
               <img/>
             </div>
             <div className='post-comments'>
