@@ -6,7 +6,7 @@ export const Post = (props) => {
         <Card>
           <div>
             <div className='counter'>
-            <p>500</p>
+              <p>{props.ups}</p>
             </div>
           </div>
           <div className='post-content'>

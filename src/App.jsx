@@ -31,6 +31,7 @@ function App() {
         {
           posts.map((post) => (
               <Post 
+                ups={post.data.ups}
                 username={post.data.author}
                 title={post.data.title}
                 content={post.data.selftext}
