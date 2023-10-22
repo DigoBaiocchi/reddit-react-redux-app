@@ -4,30 +4,34 @@ header {
   justify-content: center;
   width: 100%;
   margin: 0px;
-  background-color: rgb(139, 161, 179);
-  border-bottom: solid;
+  background-color: rgb(213, 226, 236);
+  /* border-bottom: solid; */
   border-width: 1px;
   position: fixed;
+  box-shadow: 0 4px 6px -6px #222;
 }
 
 .nav-bar {
     display: flex;
     justify-content: center;
     text-align: center;
+    align-items: center;
     padding: 20px;
   }
   
   .nav {
+    display: flex;
     margin: 5px;
-    background-color: rgb(157, 179, 196);
+    background-color: rgb(213, 226, 236);
     border-style: solid;
     border-color: black;
     border-width: 1px;
-    width: 200px;
+    width: 150px;
     height: 100%;
     padding: 0px;
     text-decoration: none;
-    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav a {
@@ -35,8 +39,12 @@ header {
   }
 
   .nav:hover {
-    background-color: rgb(220, 213, 224);
-    text-decoration: underline black 1px;
+    background-color: rgb(130, 194, 243);
+    color: white;
+    font-weight: bold;
+    border-color: white;
+    border-width: 3px;
+    /* text-decoration: underline black 1px; */
   }
   
   .search-section {
