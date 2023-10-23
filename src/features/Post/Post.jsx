@@ -19,7 +19,7 @@ export const Post = (props) => {
               <img/>
             </div>
             <div className='post-comments'>
-              <a className='post-comments-button' href=''>({props.numComments}) Comments</a>
+              <a className='post-comments-button' href=''>{props.numComments} Comments</a>
             </div>
           </div>
         </Card>

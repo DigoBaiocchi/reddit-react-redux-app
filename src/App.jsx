@@ -20,6 +20,14 @@ function App() {
       .then((data) => setPosts(data.data.children));
   };
 
+  const formatNumber = (number) => {
+    const checkForMoreThanFourDigits = number / 1000 >= 1;
+    if (checkForMoreThanFourDigits) {
+      return `${(number / 1000).toFixed(1)}k`;
+    }
+    return number;
+  };
+
   useEffect(() => {
     fetchApiData();
   }, []);
@@ -35,7 +43,7 @@ function App() {
                 username={post.data.author}
                 title={post.data.title}
                 content={post.data.selftext}
-                numComments={post.data.num_comments}
+                numComments={formatNumber(post.data.num_comments)}
               />)
           )
         }
