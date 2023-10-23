@@ -64,4 +64,16 @@ main{
 
 .post-comments-button {
   text-decoration: none;
+  font-size: 15px;
+  padding: 5px;
+  margin: 2px;
+  width: 110px;
+}
+
+.post-comments-button:hover {
+  background-color: rgb(192, 217, 236);
+  color: white;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: #333;
 }

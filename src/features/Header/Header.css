@@ -21,14 +21,14 @@ header {
   
   .nav {
     display: flex;
-    margin: 5px;
+    /* margin: 5px; */
     background-color: rgb(213, 226, 236);
     border-style: solid;
     border-color: transparent;
     border-width: 1px;
     width: 150px;
     height: 100%;
-    padding: 0px;
+    padding: 2px;
     text-decoration: none;
     justify-content: center;
     align-items: center;
@@ -39,10 +39,10 @@ header {
   }
 
   .nav:hover {
-    background-color: rgb(130, 194, 243);
+    background-color: rgb(192, 217, 236);
     color: white;
     font-weight: bold;
-    border-color: white;
+    border-color: transparent;
     border-width: 1px;
   }
   
