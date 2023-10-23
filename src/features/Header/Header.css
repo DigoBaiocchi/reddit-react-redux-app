@@ -24,7 +24,7 @@ header {
     margin: 5px;
     background-color: rgb(213, 226, 236);
     border-style: solid;
-    border-color: black;
+    border-color: transparent;
     border-width: 1px;
     width: 150px;
     height: 100%;
@@ -44,7 +44,6 @@ header {
     font-weight: bold;
     border-color: white;
     border-width: 1px;
-    /* text-decoration: underline black 1px; */
   }
   
   .search-section {
