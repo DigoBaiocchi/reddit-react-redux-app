@@ -44,6 +44,7 @@ function App() {
                 title={post.data.title}
                 content={post.data.selftext}
                 numComments={formatNumber(post.data.num_comments)}
+                url={post.data.url}
               />)
           )
         }
