@@ -15,18 +15,18 @@ export const Post = (props) => {
             </div>
             <div className='post-inner-content'>
               <p className='post-title'>{props.title}</p>
-              <p className='post-text-content'>{props.content}</p>
               {
-                props.url.includes("//i.redd.it") ? 
-                  <img src={props.url} /> : 
-                  <></>
+                props.content && <p className='post-text-content'>{props.content}</p>
+              }
+              
+              {
+                props.url.includes("//i.redd.it") && <img src={props.url} />
               }
               {
-                props.url.includes("//v.redd.it") ?
+                props.url.includes("//v.redd.it") &&
                   <video controls width="300">
                     <source src={`${props.url}/DASH_1080.mp4?source=fallback`}/>
-                  </video> :
-                  <></>
+                  </video>
               }
               <img/>
             </div>
