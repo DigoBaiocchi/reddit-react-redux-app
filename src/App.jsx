@@ -36,19 +36,27 @@ function App() {
     <div>
       <Header handleChange={handleChange} />
       <main>
-        {
-          posts.map((post) => (
-              <Post 
-                ups={formatNumber(post.data.ups)}
-                username={post.data.author}
-                title={post.data.title}
-                content={post.data.selftext}
-                numComments={formatNumber(post.data.num_comments)}
-                url={post.data.url}
-              />)
-          )
-        }
-        
+        <div>
+          <div>
+          {
+            posts.map((post) => (
+                <Post 
+                  ups={formatNumber(post.data.ups)}
+                  username={post.data.author}
+                  title={post.data.title}
+                  content={post.data.selftext}
+                  numComments={formatNumber(post.data.num_comments)}
+                  url={post.data.url}
+                />)
+            )
+          }
+          </div>
+        </div>
+        <div className='side-bar'>
+          <a href=''>Option 1</a>
+          <a href=''>Option 2</a>
+          <a href=''> Option 3</a>
+        </div>
       </main>
     </div>
   );
