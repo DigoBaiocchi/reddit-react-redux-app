@@ -23,10 +23,7 @@ export const Post = (props) => {
                 props.url.includes("//i.redd.it") && <img src={props.url} />
               }
               {
-                props.url.includes("//v.redd.it") &&
-                  <video controls width="300">
-                    <source src={`${props.url}/DASH_1080.mp4?source=fallback`}/>
-                  </video>
+                props.url.includes("//v.redd.it") && <p>Video not available :-\</p>
               }
               <img/>
             </div>
