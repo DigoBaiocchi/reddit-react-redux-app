@@ -1,11 +1,13 @@
 import './Post.css';
 import { Card } from '../../components/Card/Card';
+import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 export const Post = (props) => {
     return (
         <Card>
           <div>
             <div className='counter'>
+              <button><BsFillArrowUpCircleFill /></button>
               <p>{props.ups}</p>
             </div>
           </div>
