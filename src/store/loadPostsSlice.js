@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const options = {
-    name: allPostsSlice,
+    name: "allPostsSlice",
     initialState: [],
     reducers: {
         loadPosts: (state, payload) => {
@@ -9,3 +9,5 @@ const options = {
         }
     }
 };
+
+const loadPostsSlice = createSlice(options);
