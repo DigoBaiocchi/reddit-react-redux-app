@@ -1,8 +1,12 @@
 import './Post.css';
 import { Card } from '../../components/Card/Card';
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
+import { BsArrowUpCircle } from "react-icons/bs";
+import { useState } from 'react';
 
 export const Post = (props) => {
+    const [isClicked, setIsCliked] = useState();
+
     return (
         <Card>
           <div>
