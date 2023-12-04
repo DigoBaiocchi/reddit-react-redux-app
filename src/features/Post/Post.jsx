@@ -1,18 +1,50 @@
 import './Post.css';
 import { Card } from '../../components/Card/Card';
-import { BsFillArrowUpCircleFill } from "react-icons/bs";
-import { BsArrowUpCircle } from "react-icons/bs";
+import { 
+  BsFillArrowUpCircleFill, 
+  BsArrowUpCircle,
+  BsArrowDownCircle,
+  BsFillArrowDownCircleFill, 
+} from "react-icons/bs";
 import { useState } from 'react';
 
 export const Post = (props) => {
-    const [isClicked, setIsCliked] = useState();
+    const [clickedValue, setclickedValue] = useState(0);
+
+    const handleClick = (newValue) => {
+      if (newValue === clickedValue) {
+        setclickedValue(0);
+      } else if (newValue === 1) {
+        setclickedValue(1);
+      } else {
+        setclickedValue(-1);
+      }
+      
+    }
+
+    const handleUpVote = () => {
+      if (clickedValue === 1) {
+        return <BsFillArrowUpCircleFill />;
+      } else {
+        return <BsArrowUpCircle />;
+      }
+    }
+
+    const handleDownVote = () => {
+      if (clickedValue === -1) {
+        return <BsFillArrowDownCircleFill />;
+      } else {
+        return <BsArrowDownCircle />;
+      }
+    }
 
     return (
         <Card>
           <div>
             <div className='counter'>
-              <button><BsFillArrowUpCircleFill /></button>
+              <button onClick={() => handleClick(1)}>{handleUpVote()}</button>
               <p>{props.ups}</p>
+              <button onClick={() => handleClick(-1)}>{handleDownVote()}</button>
             </div>
           </div>
           <div className='post-content'>
