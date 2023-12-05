@@ -12,7 +12,7 @@ export const Header = (props) => {
             </nav>
             <div className='search-section'>
                 <input id="search" className='search-input' onChange={props.handleChange}></input>
-                <button className='search-button'd>Search</button>
+                <button className='search-button'>Search</button>
             </div>
         </header>    
     );
