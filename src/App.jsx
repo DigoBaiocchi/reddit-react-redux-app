@@ -19,12 +19,14 @@ function App() {
   const convertInput = (inputValue) => {
     return inputValue.split('').map(char => {
       const ascii = char.charCodeAt(0);
-      if ((ascii >= 65 && ascii <= 90)) {
+      if (ascii === 32) {
+        return "%" + 20;
+      } else if ((ascii >= 65 && ascii <= 90)) {
         return char;
       } else if (ascii >= 97 && ascii <= 122) {
         return char;
       } else {
-        return "%" + ascii.toString(16).padStart(2, '0');
+        return "%" + ascii;
       }
     }).join('');
   }
