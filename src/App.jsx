@@ -4,15 +4,14 @@ import { useState, useEffect } from 'react';
 import { Header } from './features/Header/Header.jsx';
 import { Post } from './features/Post/Post.jsx';
 
-import { redditApi } from './api/redditApi';
+import { homePageRedditApi } from './api/redditApi';
 
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const fetchApiData = () => {
-    return fetch('https://www.reddit.com/.json')
-      .then(data => data.json())
-      .then((data) => setPosts(data.data.children));
+  const fetchApiData = async () => {
+    const data = await homePageRedditApi();
+    setPosts(data);
   };
 
   const formatNumber = (number) => {
