@@ -28,9 +28,10 @@ export const Header = (props) => {
     return (
         <header>
             <nav className='nav-bar'>
-                <a className='nav' href=''>Best</a>
-                <a className='nav' href=''>Popular</a>
-                <a className='nav' href=''>New</a>
+                <a className='nav' href='#' onClick={() => props.setPageView("home")}>Home</a>
+                <a className='nav' href='#' onClick={() => props.setPageView("hot")}>Hot</a>
+                <a className='nav' href='#' onClick={() => props.setPageView("popular")}>Popular</a>
+                <a className='nav' href='#' onClick={() => props.setPageView("new")}>New</a>
             </nav>
             <div className='search-section'>
                 <input id="search" className='search-input' onChange={handleChange}></input>
