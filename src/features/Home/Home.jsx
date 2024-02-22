@@ -7,11 +7,17 @@ import { redditPageApi } from '../../api/redditApi';
 
 export const Home = () => {
   const [posts, setPosts] = useState([]);
+  const [subRedditsData, setSubRedditsData] = useState([]);
   const [page, setPage] = useState("home");
 
   const fetchApiData = async (pageName) => {
     const data = await redditPageApi(pageName);
     setPosts(data);
+  };
+
+  const subRedditsNames = async () => {
+    const data = await redditPageApi("subreddits");
+    setSubRedditsData(data);
   };
 
   const setPageView = (pageView) => {
@@ -28,7 +34,7 @@ export const Home = () => {
     
     useEffect(() => {
         fetchApiData(page);
-        console.log(page);
+        subRedditsNames();
     }, [page]);
 
   return (
@@ -53,9 +59,11 @@ export const Home = () => {
           </div>
         </div>
         <div className='side-bar'>
-          <a href=''>Option 1</a>
-          <a href=''>Option 2</a>
-          <a href=''> Option 3</a>
+          {
+            subRedditsData.map((subReddit, i) => (
+              <a key={i} href=''>{subReddit.data.display_name}</a>
+            ))
+          }
         </div>
       </main>
     </div>
