@@ -61,7 +61,12 @@ export const Home = () => {
         <div className='side-bar'>
           {
             subRedditsData.map((subReddit, i) => (
-              <a key={i} href=''>{subReddit.data.display_name}</a>
+              <a 
+                key={i} 
+                onClick={() => setPageView(subReddit.data.display_name)}
+                href='#'>
+                  {subReddit.data.display_name}
+                </a>
             ))
           }
         </div>
