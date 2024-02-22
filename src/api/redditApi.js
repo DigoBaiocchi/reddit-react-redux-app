@@ -12,14 +12,14 @@ export const redditPageApi = async (pageName) => {
         case "best":
             url = `${BASE_URL}/${pageName}/.json`;
             break;
-        case "popular":
-            url = `${BASE_URL}/r/${pageName}/.json`;
+        case "home":
+            url = `${BASE_URL}/.json`;
             break;
         case "subreddits":
             url = `${BASE_URL}/subreddits/.json`;
             break;
         default:
-            url = `${BASE_URL}/.json`;
+        url = `${BASE_URL}/r/${pageName}/.json`;
     }
     
     const result = await fetch(url);
