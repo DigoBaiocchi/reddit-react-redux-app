@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { Header } from '../Header/Header.jsx';
 import { Post } from '../Post/Post.jsx';
+import { Subreddits } from '../Subreddits/Subreddits.jsx';
 
 import { redditPageApi } from '../../api/redditApi';
 
@@ -62,18 +63,7 @@ export const Home = () => {
           }
           </div>
         </div>
-        <div className='side-bar'>
-          {
-            subRedditsData.map((subReddit, i) => (
-              <a 
-                key={i} 
-                onClick={() => setPageView(subReddit.data.display_name)}
-                href='#'>
-                  {subReddit.data.display_name}
-                </a>
-            ))
-          }
-        </div>
+        <Subreddits setPageView={setPageView} subRedditsData={subRedditsData} />
       </main>
     </div>
   );
