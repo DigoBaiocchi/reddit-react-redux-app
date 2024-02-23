@@ -6,16 +6,3 @@ main {
   justify-content: center;
 }
 
-.side-bar {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: sticky;
-  top: 100px;
-  height: 100%;
-  overflow: auto;
-
-}
