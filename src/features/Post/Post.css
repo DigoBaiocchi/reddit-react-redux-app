@@ -77,3 +77,11 @@ main{
   border-width: 1px;
   border-color: #333;
 }
+
+.up-arrow-vote {
+  color: #34a52a;
+}
+
+.down-arrow-vote {
+  color: #db3333;
+}
