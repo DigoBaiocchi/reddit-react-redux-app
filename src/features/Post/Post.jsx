@@ -14,19 +14,19 @@ export const Post = (props) => {
 
     const handleClick = (newValue) => {
       if (newValue === clickedValue) {
+        setTotalVotes(props.ups);
         setclickedValue(0);
       } else if (newValue === 1) {
-        setTotalVotes(totalVotes + 1);
+        setTotalVotes(props.ups + 1);
         setclickedValue(1);
       } else {
-        setTotalVotes(totalVotes - 1);
+        setTotalVotes(props.ups - 1);
         setclickedValue(-1);
       }      
     };
 
     const handleUpVote = () => {
       if (clickedValue === 1) {
-        
         return <BsFillArrowUpCircleFill className='up-arrow-vote' />;
       } else {
         return <BsArrowUpCircle />;
@@ -35,7 +35,6 @@ export const Post = (props) => {
 
     const handleDownVote = () => {
       if (clickedValue === -1) {
-        
         return <BsFillArrowDownCircleFill className='down-arrow-vote' />;
       } else {
         return <BsArrowDownCircle />;
