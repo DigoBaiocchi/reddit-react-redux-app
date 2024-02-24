@@ -52,7 +52,7 @@ export const Home = () => {
               posts.map((post, i) => (
                   <Post 
                     key={i}
-                    ups={formatNumber(post.data.ups)}
+                    ups={formatNumber(post.data.ups - post.data.downs)}
                     username={post.data.author}
                     title={post.data.title}
                     content={post.data.selftext}
