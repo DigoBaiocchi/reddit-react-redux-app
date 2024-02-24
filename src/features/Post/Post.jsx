@@ -56,7 +56,7 @@ export const Post = (props) => {
 
     return (
         <Card>
-          <div>
+          <div className='counter-container'>
             <div className='counter'>
               <button onClick={() => handleClick(1)}>{handleUpVote()}</button>
               <p>{formatNumber(totalVotes)}</p>
