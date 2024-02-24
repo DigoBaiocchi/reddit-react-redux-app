@@ -25,21 +25,13 @@ export const Home = () => {
   const setPageView = (pageView) => {
     setPage(pageView);
   };
-    
-    const formatNumber = (number) => {
-      const checkForMoreThanFourDigits = number / 1000 >= 1;
-      if (checkForMoreThanFourDigits) {
-          return `${(number / 1000).toFixed(1)}k`;
-      }
-      return number;
-    };
-    
-    useEffect(() => {
-      setIsLoading(true);
-      fetchApiData(page);
-      subRedditsNames();
-      setIsLoading(false);
-    }, [page]);
+  
+  useEffect(() => {
+    setIsLoading(true);
+    fetchApiData(page);
+    subRedditsNames();
+    setIsLoading(false);
+  }, [page]);
 
   return (
     <div>
@@ -52,11 +44,11 @@ export const Home = () => {
               posts.map((post, i) => (
                   <Post 
                     key={i}
-                    ups={formatNumber(post.data.ups - post.data.downs)}
+                    ups={post.data.ups - post.data.downs}
                     username={post.data.author}
                     title={post.data.title}
                     content={post.data.selftext}
-                    numComments={formatNumber(post.data.num_comments)}
+                    numComments={post.data.num_comments}
                     url={post.data.url}
                   />)
               )

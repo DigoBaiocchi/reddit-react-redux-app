@@ -16,14 +16,17 @@ export const Post = (props) => {
       if (newValue === clickedValue) {
         setclickedValue(0);
       } else if (newValue === 1) {
+        setTotalVotes(totalVotes + 1);
         setclickedValue(1);
       } else {
+        setTotalVotes(totalVotes - 1);
         setclickedValue(-1);
       }      
     };
 
     const handleUpVote = () => {
       if (clickedValue === 1) {
+        
         return <BsFillArrowUpCircleFill className='up-arrow-vote' />;
       } else {
         return <BsArrowUpCircle />;
@@ -32,10 +35,19 @@ export const Post = (props) => {
 
     const handleDownVote = () => {
       if (clickedValue === -1) {
+        
         return <BsFillArrowDownCircleFill className='down-arrow-vote' />;
       } else {
         return <BsArrowDownCircle />;
       }
+    };
+
+    const formatNumber = (number) => {
+      const checkForMoreThanFourDigits = number / 1000 >= 1;
+      if (checkForMoreThanFourDigits) {
+          return `${(number / 1000).toFixed(1)}k`;
+      }
+      return number;
     };
 
     useEffect(() => {
@@ -48,7 +60,7 @@ export const Post = (props) => {
           <div>
             <div className='counter'>
               <button onClick={() => handleClick(1)}>{handleUpVote()}</button>
-              <p>{totalVotes}</p>
+              <p>{formatNumber(totalVotes)}</p>
               <button onClick={() => handleClick(-1)}>{handleDownVote()}</button>
             </div>
           </div>
