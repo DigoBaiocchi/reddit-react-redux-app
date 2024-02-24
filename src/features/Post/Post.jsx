@@ -24,7 +24,7 @@ export const Post = (props) => {
 
     const handleUpVote = () => {
       if (clickedValue === 1) {
-        return <BsFillArrowUpCircleFill />;
+        return <BsFillArrowUpCircleFill className='up-arrow-vote' />;
       } else {
         return <BsArrowUpCircle />;
       }
@@ -32,7 +32,7 @@ export const Post = (props) => {
 
     const handleDownVote = () => {
       if (clickedValue === -1) {
-        return <BsFillArrowDownCircleFill />;
+        return <BsFillArrowDownCircleFill className='down-arrow-vote' />;
       } else {
         return <BsArrowDownCircle />;
       }
