@@ -6,10 +6,11 @@ import {
   BsArrowDownCircle,
   BsFillArrowDownCircleFill, 
 } from "react-icons/bs";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Post = (props) => {
     const [clickedValue, setclickedValue] = useState(0);
+    const [totalVotes, setTotalVotes] = useState(props.ups);
 
     const handleClick = (newValue) => {
       if (newValue === clickedValue) {
@@ -18,9 +19,8 @@ export const Post = (props) => {
         setclickedValue(1);
       } else {
         setclickedValue(-1);
-      }
-      
-    }
+      }      
+    };
 
     const handleUpVote = () => {
       if (clickedValue === 1) {
@@ -28,7 +28,7 @@ export const Post = (props) => {
       } else {
         return <BsArrowUpCircle />;
       }
-    }
+    };
 
     const handleDownVote = () => {
       if (clickedValue === -1) {
@@ -36,14 +36,19 @@ export const Post = (props) => {
       } else {
         return <BsArrowDownCircle />;
       }
-    }
+    };
+
+    useEffect(() => {
+      setTotalVotes(props.ups);
+      setclickedValue(0);
+    }, [props]);
 
     return (
         <Card>
           <div>
             <div className='counter'>
               <button onClick={() => handleClick(1)}>{handleUpVote()}</button>
-              <p>{props.ups}</p>
+              <p>{totalVotes}</p>
               <button onClick={() => handleClick(-1)}>{handleDownVote()}</button>
             </div>
           </div>
