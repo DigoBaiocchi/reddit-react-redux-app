@@ -90,11 +90,14 @@ main{
 }
 
 .post-comments-button {
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  color: rgb(192, 217, 236);
   font-size: 15px;
   padding: 5px;
-  margin: 2px;
-  width: 110px;
+  margin-top: 15px;
+  width: max-content;
 }
 
 .post-comments-button:hover {
@@ -104,6 +107,10 @@ main{
   font-weight: bold;
   border-width: 1px;
   border-color: #333;
+}
+
+.comment-icon {
+  padding-right: 5px;
 }
 
 .up-arrow-vote {
