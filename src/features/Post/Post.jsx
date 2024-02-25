@@ -6,6 +6,7 @@ import {
   BsArrowDownCircle,
   BsFillArrowDownCircleFill, 
 } from "react-icons/bs";
+import { FaCommentAlt } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 
 export const Post = (props) => {
@@ -82,7 +83,7 @@ export const Post = (props) => {
               <img/>
             </div>
             <div className='post-comments'>
-              <a className='post-comments-button' href=''>{formatNumber(props.numComments)} Comments</a>
+              <a className='post-comments-button' href=''><FaCommentAlt className='comment-icon' /> {formatNumber(props.numComments)} Comments</a>
             </div>
           </div>
         </Card>
