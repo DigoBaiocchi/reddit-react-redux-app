@@ -27,17 +27,17 @@ export const Post = (props) => {
 
     const handleUpVote = () => {
       if (clickedValue === 1) {
-        return <BsFillArrowUpCircleFill className='up-arrow-vote' />;
+        return <BsFillArrowUpCircleFill size={25} className='up-arrow-vote' />;
       } else {
-        return <BsArrowUpCircle />;
+        return <BsArrowUpCircle size={25} />;
       }
     };
 
     const handleDownVote = () => {
       if (clickedValue === -1) {
-        return <BsFillArrowDownCircleFill className='down-arrow-vote' />;
+        return <BsFillArrowDownCircleFill size={25}  className='vote-button down-arrow-vote' />;
       } else {
-        return <BsArrowDownCircle />;
+        return <BsArrowDownCircle size={25}  />;
       }
     };
 

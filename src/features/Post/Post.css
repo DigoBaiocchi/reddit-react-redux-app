@@ -10,10 +10,15 @@ main{
 }
 
 .counter {
-    width: max-content;
-    text-align: center;
-    height:max-content;
-    padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50px;
+  text-align: center;
+  height: max-content;
+  padding: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .counter-container {
@@ -23,8 +28,19 @@ main{
 .counter p {
   width: 50px;
   color: white;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.counter button {
+  display: flex;
+  padding: 2px;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-style: none;
 }
   
 .post-content {
@@ -43,6 +59,10 @@ main{
   width: 100%;
   height: fit-content;
   font-size: 12px;
+}
+
+.post-content-username p {
+  margin: 0;
 }
 
 .post-inner-content {
