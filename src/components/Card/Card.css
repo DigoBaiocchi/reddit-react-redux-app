@@ -1,6 +1,6 @@
 .card {
     display: flex;
-    margin: 5px;
+    margin: 10px;
     width: 1000px;
     height:fit-content;
     background-color: white;
