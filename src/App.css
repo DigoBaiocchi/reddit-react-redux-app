@@ -1,6 +1,5 @@
 main {
   display: flex;
-  align-items: baseline;
   flex-direction: row;
   height: 100%;
   justify-content: center;

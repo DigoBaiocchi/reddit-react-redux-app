@@ -7,6 +7,7 @@ export const Subreddits = ({ setPageView, subRedditsData }) => {
                 subRedditsData.map((subReddit, i) => (
                     <a 
                         key={i} 
+                        className='subreddit-category'
                         onClick={() => setPageView(subReddit.data.display_name)}
                         href='#'>
                         {subReddit.data.display_name}
