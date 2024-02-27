@@ -27,7 +27,6 @@ main{
 
 .counter p {
   width: 50px;
-  color: white;
   margin-top: 8px;
   margin-bottom: 8px;
 }
@@ -41,6 +40,18 @@ main{
   justify-content: center;
   background-color: transparent;
   border-style: none;
+}
+
+.up-vote-number {
+  color: #34a52a;
+}
+
+.no-vote-number {
+  color: white;
+}
+
+.down-vote-number {
+  color: #db3333;
 }
   
 .post-content {
