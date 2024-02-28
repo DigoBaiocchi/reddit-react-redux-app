@@ -27,3 +27,12 @@ export const redditPageApi = async (pageName) => {
     console.log(url);
     return json.data.children;
 };
+
+export const redditSearchApi = async (searchTerm) => {
+    const url = `https://www.reddit.com/search/.json?q=${searchTerm}`;
+
+    const result = await fetch(url);
+    const json = await result.json();
+
+    return json.data.children;
+};
