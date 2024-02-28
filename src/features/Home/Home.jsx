@@ -25,6 +25,10 @@ export const Home = () => {
   const setPageView = (pageView) => {
     setPage(pageView);
   };
+
+  const getSearchData = async (searchData) => {
+    setPosts(await searchData);
+  }
   
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +39,11 @@ export const Home = () => {
 
   return (
     <div>
-      <Header setPageView={setPageView} page={page} />
+      <Header 
+        setPageView={setPageView} 
+        page={page} 
+        searchData={getSearchData}
+      />
       <main>
         <div>
           <div>

@@ -1,17 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { redditSearchApi } from '../../api/redditApi';
 
 import './Header.css'
 
 export const Header = (props) => {
     const [searchInput, setSearchInput] = useState('');
+    const { searchData } = props;
 
     const handleChange = ({ target }) => {
         const { value } = target;
         setSearchInput(value);
         console.log(convertInput(searchInput));
-    }
+    };
 
     const convertInput = (inputValue) => {
+        const specialCharacters = ["!", '"', "(", ")", "*", "-", ".", "<", ">", "_", "~"];
+        
         return inputValue.split('').map(char => {
         const ascii = char.charCodeAt(0);
         if (ascii === 32) {
@@ -20,11 +24,19 @@ export const Header = (props) => {
             return char;
         } else if (ascii >= 97 && ascii <= 122) {
             return char;
+        }  else if (specialCharacters.includes(char)) {
+            return char;
         } else {
-            return "%" + ascii;
+            return "%" + Number(ascii).toString(16);
         }
         }).join('');
-    }
+    };
+
+    const handleSubmit = () => {
+        const searchApiData = redditSearchApi(searchInput)
+        searchData(searchApiData);
+    }; 
+
     return (
         <header>
             <nav className='nav-bar'>
@@ -35,7 +47,7 @@ export const Header = (props) => {
             </nav>
             <div className='search-section'>
                 <input id="search" className='search-input' onChange={handleChange}></input>
-                <button className='search-button'>Search</button>
+                <button className='search-button' onClick={handleSubmit}>Search</button>
             </div>
         </header>    
     );
