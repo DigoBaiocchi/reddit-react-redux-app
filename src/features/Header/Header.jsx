@@ -35,6 +35,7 @@ export const Header = (props) => {
     const handleSubmit = () => {
         const searchApiData = redditSearchApi(searchInput)
         searchData(searchApiData);
+        setSearchInput('');
     }; 
 
     return (
@@ -46,8 +47,21 @@ export const Header = (props) => {
                 <a className='nav' href='#' onClick={() => props.setPageView("new")}>New</a>
             </nav>
             <div className='search-section'>
-                <input id="search" className='search-input' onChange={handleChange}></input>
-                <button className='search-button' onClick={handleSubmit}>Search</button>
+                <input 
+                    id="search" 
+                    className='search-input' 
+                    onChange={handleChange}
+                    placeholder='Search on reddit...'
+                    value={searchInput}
+                >
+                </input>
+                <button 
+                    className='search-button' 
+                    onClick={handleSubmit} 
+                    href='#'
+                    >
+                        Search
+                </button>
             </div>
         </header>    
     );
