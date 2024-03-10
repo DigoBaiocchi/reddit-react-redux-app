@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { redditPageApi } from "../api/redditApi";
 
 const initialState = {
     posts: [],
@@ -16,4 +17,23 @@ const redditSlice = createSlice({
 
 export const { setPosts } = redditSlice.actions;
 
-export default loadPostsSlice.reducer;
+export default redditSlice.reducer;
+
+export const fetchPosts = (subreddit) => async (dispatch) => {
+    try{
+        const posts = await redditPageApi(subreddit);
+
+        dispatch(posts);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const selectPosts = (state) => state.reddit.posts;
+
+export const selectFilteredPosts = createSelector(
+    [selectPosts],
+    (posts) => {
+        return posts;
+    }
+);
