@@ -3,18 +3,25 @@ import { useState, useEffect } from 'react';
 import { Header } from '../Header/Header.jsx';
 import { Post } from '../Post/Post.jsx';
 import { Subreddits } from '../Subreddits/Subreddits.jsx';
+import {
+  fetchPosts, 
+  selectFilteredPosts,
+} from '../../store/redditSlice.js';
 
 import { redditPageApi } from '../../api/redditApi';
+import { useSelector } from 'react-redux';
 
 export const Home = () => {
-  const [posts, setPosts] = useState([]);
+  // const reddit = useSelector((state) => state.reddit);
+  // const [posts, setPosts] = useState([]);
+  const posts = useSelector(selectFilteredPosts)
   const [subRedditsData, setSubRedditsData] = useState([]);
   const [page, setPage] = useState("home");
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchApiData = async (pageName) => {
     const data = await redditPageApi(pageName);
-    setPosts(data);
+    // setPosts(data);
   };
 
   const subRedditsNames = async () => {
@@ -27,12 +34,13 @@ export const Home = () => {
   };
 
   const getSearchData = async (searchData) => {
-    setPosts(await searchData);
+    // setPosts(await searchData);
   }
   
   useEffect(() => {
     setIsLoading(true);
-    fetchApiData(page);
+    // fetchApiData(page);
+    dispatchEvent(fetchPosts())
     subRedditsNames();
     setIsLoading(false);
   }, [page]);
