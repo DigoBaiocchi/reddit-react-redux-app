@@ -25,7 +25,7 @@ export const redditPageApi = async (pageName) => {
     const result = await fetch(url);
     const json = await result.json();
     console.log(url);
-    return json.data.children;
+    return json.data.children.map((post) => post.data);
 };
 
 export const redditSearchApi = async (searchTerm) => {
@@ -34,5 +34,5 @@ export const redditSearchApi = async (searchTerm) => {
     const result = await fetch(url);
     const json = await result.json();
 
-    return json.data.children;
+    return json.data.children.map((post) => post.data);
 };

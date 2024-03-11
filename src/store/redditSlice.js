@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { redditPageApi } from "../api/redditApi";
+import { redditPageApi, redditSearchApi } from "../api/redditApi";
 
 const initialState = {
     posts: [],
@@ -11,11 +11,17 @@ const redditSlice = createSlice({
     reducers: {
         setPosts(state, action) {
             state.posts = action.payload;
+        },
+        setSearchTerm(state, action) {
+            state.searchTerm = action.payload;
         }
     }
 });
 
-export const { setPosts } = redditSlice.actions;
+export const { 
+    setPosts,
+    setSearchTerm,
+} = redditSlice.actions;
 
 export default redditSlice.reducer;
 
@@ -30,10 +36,17 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
 };
 
 const selectPosts = (state) => state.reddit.posts;
+const selectSearchTerm = (state) => state.reddit.searchTerm;
 
 export const selectFilteredPosts = createSelector(
-    [selectPosts],
-    (posts) => {
+    [selectPosts, selectSearchTerm],
+    (posts, searchTerm) => {
+        if (searchTerm !== '') {
+            return posts.filter((post) => 
+                post.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
         return posts;
     }
 );
