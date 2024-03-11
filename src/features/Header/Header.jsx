@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { redditSearchApi } from '../../api/redditApi';
 
 import './Header.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchTerm } from '../../store/redditSlice';
 
 export const Header = (props) => {
     const [searchInput, setSearchInput] = useState('');
-    const { searchData } = props;
+    const searchTerm = useSelector((state) => state.reddit.searchTerm);
+    const dispatch = useDispatch();
 
-    const handleChange = ({ target }) => {
-        const { value } = target;
-        setSearchInput(value);
+    const handleChange = (e) => {
+        setSearchInput(convertInput(e.target.value));
         console.log(convertInput(searchInput));
     };
 
@@ -32,19 +34,27 @@ export const Header = (props) => {
         }).join('');
     };
 
-    const handleSubmit = () => {
-        const searchApiData = redditSearchApi(searchInput)
-        searchData(searchApiData);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(setSearchTerm(searchInput));
         setSearchInput('');
     }; 
+
+    const handleClick = (pageName) => {
+        dispatch(setSearchTerm(pageName));
+    };
+
+    useEffect(() => {
+        setSearchInput(searchTerm);
+    }, [searchTerm]);
 
     return (
         <header>
             <nav className='nav-bar'>
-                <a className='nav' href='#' onClick={() => props.setPageView("home")}>Home</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("hot")}>Hot</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("popular")}>Popular</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("new")}>New</a>
+                <a className='nav' href='#' onClick={handleClick("home")}>Home</a>
+                <a className='nav' href='#' onClick={ handleClick("hot")}>Hot</a>
+                <a className='nav' href='#' onClick={handleClick("popular")}>Popular</a>
+                <a className='nav' href='#' onClick={handleClick("new")}>New</a>
             </nav>
             <div className='search-section'>
                 <input 

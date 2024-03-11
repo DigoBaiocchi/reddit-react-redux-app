@@ -1,9 +1,15 @@
 import './App.css';
+import { Header } from './features/Header/Header.jsx';
 import { Home } from './features/Home/Home.jsx';
 
 function App() {
   return (
-    <Home />
+    <>
+      <Header />
+      <main>
+        <Home />
+      </main>
+    </>
   );
 }
 

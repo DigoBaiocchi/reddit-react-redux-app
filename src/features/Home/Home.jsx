@@ -40,39 +40,36 @@ export const Home = () => {
   useEffect(() => {
     setIsLoading(true);
     // fetchApiData(page);
-    dispatchEvent(fetchPosts())
-    subRedditsNames();
+    dispatchEvent(fetchPosts('home'))
+    // subRedditsNames();
     setIsLoading(false);
   }, [page]);
 
+  if (posts.length === 0 || !posts) {
+    return <h1>No posts available</h1>
+  }
+
   return (
+    <>
     <div>
-      <Header 
-        setPageView={setPageView} 
-        page={page} 
-        searchData={getSearchData}
-      />
-      <main>
-        <div>
-          <div>
-          {
-            isLoading ? <h1>Data is loading</h1> :
-              posts.map((post, i) => (
-                  <Post 
-                    key={i}
-                    ups={post.data.ups - post.data.downs}
-                    username={post.data.author}
-                    title={post.data.title}
-                    content={post.data.selftext}
-                    numComments={post.data.num_comments}
-                    url={post.data.url}
-                  />)
-              )
-          }
-          </div>
-        </div>
-        <Subreddits setPageView={setPageView} subRedditsData={subRedditsData} />
-      </main>
+      <div>
+      {
+        isLoading ? <h1>Data is loading</h1> :
+          posts.map((post, i) => (
+              <Post 
+                key={i}
+                ups={post.ups - post.data.downs}
+                username={post.author}
+                title={post.title}
+                content={post.selftext}
+                numComments={post.num_comments}
+                url={post.url}
+              />)
+          )
+      }
+      </div>
     </div>
+    {/* <Subreddits setPageView={setPageView} subRedditsData={subRedditsData} /> */}
+    </>
   );
 }
