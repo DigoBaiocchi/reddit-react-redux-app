@@ -5,8 +5,7 @@ import { Post } from '../Post/Post.jsx';
 import { Subreddits } from '../Subreddits/Subreddits.jsx';
 
 import { 
-  fetchPosts, 
-  setPosts,
+  fetchPosts,
   setPageName,
   selectPosts,
   selectPageName,
@@ -34,10 +33,6 @@ export const Home = () => {
   const setPageView = (pageView) => {
     dispatch(setPageName(pageView));
   };
-
-  const getSearchData = async (searchData) => {
-    setPosts(await searchData);
-  }
   
   useEffect(() => {
     fetchApiData();
@@ -48,8 +43,7 @@ export const Home = () => {
     <div>
       <Header 
         setPageView={setPageView} 
-        page={pageName} 
-        searchData={getSearchData}
+        page={pageName}
       />
       <main>
         <div>

@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { redditSearchApi } from '../../api/redditApi';
 
 import './Header.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSearchTerm, setSearchTerm, fetchSearchTermPosts } from '../../store/redditSlice';
 
-export const Header = (props) => {
-    const [searchInput, setSearchInput] = useState('');
-    const { searchData } = props;
+export const Header = ({ setPageView }) => {
+    const dispatch = useDispatch();
+    const searchTerm = useSelector(selectSearchTerm);
 
     const handleChange = ({ target }) => {
         const { value } = target;
-        setSearchInput(value);
-        console.log(convertInput(searchInput));
+        dispatch(setSearchTerm(value));
     };
 
     const convertInput = (inputValue) => {
@@ -33,18 +34,17 @@ export const Header = (props) => {
     };
 
     const handleSubmit = () => {
-        const searchApiData = redditSearchApi(searchInput)
-        searchData(searchApiData);
-        setSearchInput('');
+        dispatch(fetchSearchTermPosts(searchTerm));
+        dispatch(setSearchTerm(''));
     }; 
 
     return (
         <header>
             <nav className='nav-bar'>
-                <a className='nav' href='#' onClick={() => props.setPageView("home")}>Home</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("hot")}>Hot</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("popular")}>Popular</a>
-                <a className='nav' href='#' onClick={() => props.setPageView("new")}>New</a>
+                <a className='nav' href='#' onClick={() => setPageView("home")}>Home</a>
+                <a className='nav' href='#' onClick={() => setPageView("hot")}>Hot</a>
+                <a className='nav' href='#' onClick={() => setPageView("popular")}>Popular</a>
+                <a className='nav' href='#' onClick={() => setPageView("new")}>New</a>
             </nav>
             <div className='search-section'>
                 <input 
@@ -52,7 +52,7 @@ export const Header = (props) => {
                     className='search-input' 
                     onChange={handleChange}
                     placeholder='Search on reddit...'
-                    value={searchInput}
+                    value={searchTerm}
                 >
                 </input>
                 <button 
