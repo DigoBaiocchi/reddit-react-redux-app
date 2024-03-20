@@ -4,13 +4,10 @@ import { Header } from '../Header/Header.jsx';
 import { Post } from '../Post/Post.jsx';
 import { Subreddits } from '../Subreddits/Subreddits.jsx';
 
-import { redditPageApi } from '../../api/redditApi';
-
 import { 
   fetchPosts, 
   setPosts,
   setPageName,
-  setSubReddits,
   selectPosts,
   selectPageName,
   selectSubReddits,
@@ -18,12 +15,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Home = () => {
-  const [subRedditsData, setSubRedditsData] = useState([]);
-  const [page, setPage] = useState("home");
+  const dispatch = useDispatch();
   const pageName = useSelector(selectPageName);
   const selectedPosts = useSelector(selectPosts);
-  const selectedSubReddits = useSelector(selectPosts);
-  const dispatch = useDispatch();
+  const selectedSubReddits = useSelector(selectSubReddits);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchApiData = () => {
@@ -32,15 +27,12 @@ export const Home = () => {
     setIsLoading(false);
   };
 
-  const subRedditsNames = async () => {
-    const data = await redditPageApi("subreddits");
+  const subRedditsNames = () => {
     dispatch(fetchPosts("subreddits"));
-    setSubRedditsData(data);
   };
 
   const setPageView = (pageView) => {
     dispatch(setPageName(pageView));
-    setPage(pageView);
   };
 
   const getSearchData = async (searchData) => {
@@ -50,15 +42,13 @@ export const Home = () => {
   useEffect(() => {
     fetchApiData();
     subRedditsNames();
-    console.log(selectedSubReddits[0]);
-    console.log(selectedPosts[0]);
   }, [pageName]);
 
   return (
     <div>
       <Header 
         setPageView={setPageView} 
-        page={page} 
+        page={pageName} 
         searchData={getSearchData}
       />
       <main>
@@ -75,12 +65,13 @@ export const Home = () => {
                     content={post.data.selftext}
                     numComments={post.data.num_comments}
                     url={post.data.url}
-                  />)
+                  />
+                )
               )
           }
           </div>
         </div>
-        <Subreddits setPageView={setPageView} subRedditsData={subRedditsData} />
+        <Subreddits setPageView={setPageView} subRedditsData={selectedSubReddits} />
       </main>
     </div>
   );
