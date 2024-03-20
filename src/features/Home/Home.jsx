@@ -71,7 +71,7 @@ export const Home = () => {
           }
           </div>
         </div>
-        <Subreddits setPageView={setPageView} subRedditsData={selectedSubReddits} />
+        <Subreddits subRedditsData={selectedSubReddits} />
       </main>
     </div>
   );

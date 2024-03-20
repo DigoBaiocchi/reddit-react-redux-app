@@ -3,7 +3,7 @@ import './Subreddits.css';
 import { setPageName } from '../../store/redditSlice';
 import { useDispatch } from 'react-redux';
 
-export const Subreddits = ({ setPageView, subRedditsData }) => {
+export const Subreddits = ({ subRedditsData }) => {
     const dispatch = useDispatch();
     return (
         <div className='side-bar'>
