@@ -43,4 +43,4 @@ export const fetchPosts = (pageName) => async (dispatch, getState) => {
 
 export const selectPosts = (state) => state.reddit.posts;
 export const selectPageName = (state) => state.reddit.pageName;
-export const selectSubReddits = (state) => state.reddit.setSubReddits;
+export const selectSubReddits = (state) => state.reddit.subReddits;
