@@ -3,9 +3,14 @@ import { redditSearchApi } from '../../api/redditApi';
 
 import './Header.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchTerm, setSearchTerm, fetchSearchTermPosts } from '../../store/redditSlice';
+import { 
+    selectSearchTerm, 
+    setSearchTerm, 
+    fetchSearchTermPosts, 
+    setPageName 
+} from '../../store/redditSlice';
 
-export const Header = ({ setPageView }) => {
+export const Header = () => {
     const dispatch = useDispatch();
     const searchTerm = useSelector(selectSearchTerm);
 
@@ -33,6 +38,10 @@ export const Header = ({ setPageView }) => {
         }).join('');
     };
 
+    const handleClick = (pageName) => {
+        dispatch(setPageName(pageName));
+    }
+
     const handleSubmit = () => {
         dispatch(fetchSearchTermPosts(searchTerm));
         dispatch(setSearchTerm(''));
@@ -41,10 +50,10 @@ export const Header = ({ setPageView }) => {
     return (
         <header>
             <nav className='nav-bar'>
-                <a className='nav' href='#' onClick={() => setPageView("home")}>Home</a>
-                <a className='nav' href='#' onClick={() => setPageView("hot")}>Hot</a>
-                <a className='nav' href='#' onClick={() => setPageView("popular")}>Popular</a>
-                <a className='nav' href='#' onClick={() => setPageView("new")}>New</a>
+                <a className='nav' href='#' onClick={() => handleClick("home")}>Home</a>
+                <a className='nav' href='#' onClick={() => handleClick("hot")}>Hot</a>
+                <a className='nav' href='#' onClick={() => handleClick("popular")}>Popular</a>
+                <a className='nav' href='#' onClick={() => handleClick("new")}>New</a>
             </nav>
             <div className='search-section'>
                 <input 

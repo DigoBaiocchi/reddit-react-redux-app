@@ -6,7 +6,6 @@ import { Subreddits } from '../Subreddits/Subreddits.jsx';
 
 import { 
   fetchPosts,
-  setPageName,
   selectPosts,
   selectPageName,
   selectSubReddits,
@@ -29,10 +28,6 @@ export const Home = () => {
   const subRedditsNames = () => {
     dispatch(fetchPosts("subreddits"));
   };
-
-  const setPageView = (pageView) => {
-    dispatch(setPageName(pageView));
-  };
   
   useEffect(() => {
     fetchApiData();
@@ -40,33 +35,25 @@ export const Home = () => {
   }, [pageName]);
 
   return (
-    <div>
-      <Header 
-        setPageView={setPageView} 
-        page={pageName}
-      />
-      <main>
-        <div>
-          <div>
-          {
-            isLoading ? <h1>Data is loading</h1> :
-              selectedPosts.map((post, i) => (
-                  <Post 
-                    key={i}
-                    ups={post.data.ups - post.data.downs}
-                    username={post.data.author}
-                    title={post.data.title}
-                    content={post.data.selftext}
-                    numComments={post.data.num_comments}
-                    url={post.data.url}
-                  />
-                )
+    <>
+      <div>
+        {
+          isLoading ? <h1>Data is loading</h1> :
+            selectedPosts.map((post, i) => (
+                <Post 
+                  key={i}
+                  ups={post.data.ups - post.data.downs}
+                  username={post.data.author}
+                  title={post.data.title}
+                  content={post.data.selftext}
+                  numComments={post.data.num_comments}
+                  url={post.data.url}
+                />
               )
-          }
-          </div>
-        </div>
-        <Subreddits subRedditsData={selectedSubReddits} />
-      </main>
-    </div>
+            )
+        }
+      </div>
+      <Subreddits subRedditsData={selectedSubReddits} />
+    </>
   );
 }
