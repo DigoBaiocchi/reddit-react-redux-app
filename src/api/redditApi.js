@@ -29,7 +29,7 @@ export const redditPageApi = async (pageName) => {
 };
 
 export const redditSearchApi = async (searchTerm) => {
-    const url = `https://www.reddit.com/search/.json?q=${searchTerm}`;
+    const url = `${BASE_URL}/search/.json?q=${searchTerm}`;
 
     const result = await fetch(url);
     const json = await result.json();
