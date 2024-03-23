@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import { redditSearchApi } from '../../api/redditApi';
-
 import './Header.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { 

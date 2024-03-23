@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import { Header } from '../Header/Header.jsx';
 import { Post } from '../Post/Post.jsx';
 import { Subreddits } from '../Subreddits/Subreddits.jsx';
 
@@ -37,6 +36,7 @@ export const Home = () => {
   return (
     <>
       <div>
+        <h1>Posts for "{pageName}"</h1>
         {
           isLoading ? <h1>Data is loading</h1> :
             selectedPosts.map((post, i) => (
