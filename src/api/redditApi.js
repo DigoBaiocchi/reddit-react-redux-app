@@ -36,3 +36,12 @@ export const redditSearchApi = async (searchTerm) => {
 
     return json.data.children;
 };
+
+export const postCommentsApi = async (permalink) => {
+    const url = `${BASE_URL}${permalink}.json`;
+
+    const result = await fetch(url);
+    const json = await result.json();
+
+    return json[1].data.children;
+};
