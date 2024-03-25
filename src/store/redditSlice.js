@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { redditPageApi, redditSearchApi } from "../api/redditApi";
+import { postCommentsApi, redditPageApi, redditSearchApi } from "../api/redditApi";
 
 const initialState = {
     posts: [],
@@ -27,7 +27,12 @@ const redditSlice = createSlice({
     }
 });
 
-export const { setPosts, setPageName, setSubReddits, setSearchTerm } = redditSlice.actions;
+export const { 
+    setPosts, 
+    setPageName, 
+    setSubReddits, 
+    setSearchTerm,
+} = redditSlice.actions;
 
 export default redditSlice.reducer;
 

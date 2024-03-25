@@ -42,12 +42,12 @@ export const Home = () => {
             selectedPosts.map((post, i) => (
                 <Post 
                   key={i}
-                  ups={post.data.ups - post.data.downs}
-                  username={post.data.author}
-                  title={post.data.title}
-                  content={post.data.selftext}
-                  numComments={post.data.num_comments}
-                  url={post.data.url}
+                  ups={post.ups - post.downs}
+                  username={post.author}
+                  title={post.title}
+                  content={post.selftext}
+                  numComments={post.num_comments}
+                  url={post.url}
                 />
               )
             )

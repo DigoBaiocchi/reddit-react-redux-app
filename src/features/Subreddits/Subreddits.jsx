@@ -12,9 +12,9 @@ export const Subreddits = ({ subRedditsData }) => {
                     <a 
                         key={i} 
                         className='subreddit-category'
-                        onClick={() => dispatch(setPageName(subReddit.data.display_name))}
+                        onClick={() => dispatch(setPageName(subReddit.display_name))}
                         href='#'>
-                        {subReddit.data.display_name}
+                        {subReddit.display_name}
                         </a>
                 ))
             }
