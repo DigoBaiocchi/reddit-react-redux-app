@@ -1,5 +1,6 @@
 import './Post.css';
 import { Card } from '../../components/Card/Card';
+import { Comments } from '../Comments/Comments';
 import { 
   BsFillArrowUpCircleFill, 
   BsArrowUpCircle,
@@ -61,6 +62,7 @@ export const Post = (props) => {
     }, [props]);
 
     return (
+      <>
         <Card>
           <div className='counter-container'>
             <div className='counter'>
@@ -92,5 +94,9 @@ export const Post = (props) => {
             </div>
           </div>
         </Card>
+        <Card>
+        <Comments />
+        </Card>
+      </>
     );
 };
