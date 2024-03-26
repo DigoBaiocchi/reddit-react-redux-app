@@ -3,7 +3,7 @@ import { postCommentsApi, redditPageApi, redditSearchApi } from "../api/redditAp
 
 const initialState = {
     posts: [],
-    pageName: 'Home',
+    pageName: 'home',
     subReddits: [],
     searchTerm: ''
 };
@@ -43,7 +43,11 @@ export const fetchPosts = (pageName) => async (dispatch) => {
             dispatch(setSubReddits(subreddits));
         } else {
             const posts = await redditPageApi(pageName);
-            dispatch(setPosts(posts));
+            const result = posts.map((post) => ({
+                ...post,
+                comments: []
+            }));
+            dispatch(setPosts(result));
         }
     } catch (err) {
         console.log(err);
